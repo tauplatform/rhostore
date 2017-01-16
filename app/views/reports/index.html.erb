@@ -14,15 +14,15 @@
     <th></th>
   </tr>
 
-<% @products.each do |product| %>
+<% @reports.each do |report| %>
   <tr>
-    <td><%= product.upc %></td>
-    <td><%= product.productName %></td>
-    <td><%= product.damageReason %></td>
-    <td><%= product.employeeId %></td>
-    <td><%= product.picture0Uri %></td>
-    <td><%= product.picture1Uri %></td>
-    <td><%= product.signatureUri %></td>
+    <td><%= report.upc %></td>
+    <td><%= report.reportName %></td>
+    <td><%= report.damageReason %></td>
+    <td><%= report.employeeId %></td>
+    <td><%= report.picture0Uri %></td>
+    <td><%= report.picture1Uri %></td>
+    <td><%= report.signatureUri %></td>
     <td><%= link_to 'Show', report %></td>
     <td><%= link_to 'Edit', edit_report_path(report) %></td>
     <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
