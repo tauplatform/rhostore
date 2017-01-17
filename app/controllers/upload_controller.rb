@@ -16,7 +16,8 @@ class UploadController < ApplicationController
       puts "uploading: create uploading directory #{dirname}"
       FileUtils.mkdir_p(dirname)
     end
-    File.open(path, "wb") { |f| f.write(params[:file].read) }
+    #File.open(path, "wb") { |f|  f.write(params[:file].read) }
+    File.open(path, "wb") { |f|  f.write('test') }
     puts "uploading: file saved to #{path}"
   end
 end
