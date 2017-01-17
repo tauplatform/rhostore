@@ -1,3 +1,5 @@
+require 'fileutils'
+
 class UploadController < ApplicationController
   def new
 
@@ -5,8 +7,14 @@ class UploadController < ApplicationController
 
   def create
     puts "upload params: #{params}"
-    name = params[:file].original_filename
-    path = Rails.root.join('public', 'images', 'upload', name)
+    filename = params[:file].original_filename
+    dirname = Rails.root.join('public', 'images', 'upload')
+    path = Rails.root.join(dirname, filename)
+
+    unless File.directory?(dirname)
+      FileUtils.mkdir_p(dirname)
+    end
+
     File.open(path, "wb") { |f| f.write(params[:file].read) }
   end
 end
