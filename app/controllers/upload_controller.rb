@@ -8,9 +8,9 @@ class UploadController < ApplicationController
   def create
     puts "uploading: upload params = #{params}"
     filename = params[:file].original_filename
-    #dirname = Rails.root.join('public', 'images', 'upload')
-    dirname = Rails.public_path
-    path = Rails.root.join(dirname, filename)
+    dirname = Rails.public_path.join('public', 'images', 'upload')
+    #dirname = Rails.public_path
+    path = File.join(dirname, filename)
 
     unless File.directory?(dirname)
       puts "uploading: create uploading directory #{dirname}"
