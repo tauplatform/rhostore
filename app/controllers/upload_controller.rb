@@ -6,9 +6,7 @@ class UploadController < ApplicationController
   def create
     puts "upload params: #{params}"
     name = params[:file].original_filename
-    directory = "public/images/upload"
-    path = File.join(directory, name)
+    path = Rails.root.join('public', 'images', 'upload', name)
     File.open(path, "wb") { |f| f.write(params[:file].read) }
-    flash[:notice] = "File uploaded"
   end
 end
