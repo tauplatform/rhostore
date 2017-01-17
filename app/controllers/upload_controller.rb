@@ -13,7 +13,7 @@ class UploadController < ApplicationController
     puts "uploading: upload params = #{params}"
     extension = File.extname(params[:file].original_filename)
     #filename = params[:file].original_filename
-    filename = "#{SecureRandom.uuid}.#{extension}"
+    filename = "#{SecureRandom.uuid}#{extension}"
     dirname = File::join(Rails.public_path, 'images', 'upload')
 
     unless File.directory?(dirname)
