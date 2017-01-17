@@ -17,7 +17,7 @@ class UploadController < ApplicationController
       FileUtils.mkdir_p(dirname)
     end
     #File.open(path, "wb") { |f|  f.write(params[:file].read) }
-    File.open(path, "wb") { |f|  f.write('test') }
+    File.write(path, 'test' )
     puts "uploading: file saved to #{path}"
   end
 end
