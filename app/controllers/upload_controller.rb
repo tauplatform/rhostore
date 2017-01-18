@@ -21,7 +21,8 @@ class UploadController < ApplicationController
     path = File::join(Rails.public_path, 'images', 'upload', filename)
     File.open(path, 'wb') { |f| f.write(params[:file].read) }
     #redirect_to :action => :new, :filename => "https://taustore.herokuapp.com/images/upload/#{filename}"
-
+    puts "filename: #{path}"
+    puts "filename: https://taustore.herokuapp.com/images/upload/#{filename}"
     respond_to do |format|
       msg = {:status => 200, :filename => "https://taustore.herokuapp.com/images/upload/#{filename}"}
       format.json { render :json => msg } # don't do msg.to_json
