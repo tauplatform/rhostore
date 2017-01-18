@@ -3,16 +3,13 @@ require 'fileutils'
 class UploadController < ApplicationController
   def new
     respond_to do |format|
-      puts "new params #{params}"
-      msg = {:status => "ok", :filename => params[:filename]}
+      msg = {:status => 200, :filename => params[:filename]}
       format.json { render :json => msg } # don't do msg.to_json
     end
   end
 
   def create
-    puts "uploading: upload params = #{params}"
     extension = File.extname(params[:file].original_filename)
-    #filename = params[:file].original_filename
     filename = "#{SecureRandom.uuid}#{extension}"
     dirname = File::join(Rails.public_path, 'images', 'upload')
 
